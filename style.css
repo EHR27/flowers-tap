@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+
+    /* Prevent unwanted touch gestures */
+    touch-action: manipulation;
+}
+
+
+/* =========================
+   GARDEN
+========================= */
+
+.garden {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        #87CEEB,
+        #dff6ff
+    );
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    position: absolute;
+
+    top: 5vh;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: clamp(26px, 8vw, 42px);
+
+    text-shadow:
+        2px 2px 5px #555;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.instruction {
+    position: absolute;
+
+    top: 12vh;
+
+    width: 100%;
+
+    padding: 0 20px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: clamp(14px, 4vw, 18px);
+
+    text-shadow:
+        1px 1px 3px #555;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   GRASS
+========================= */
+
+.grass {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 28%;
+
+    background: #4caf50;
+
+    z-index: 1;
+
+    cursor: pointer;
+
+    /*
+        Makes the grass respond
+        nicely when touching it.
+    */
+    touch-action: manipulation;
+}
+
+
+/* =========================
+   FLOWER
+========================= */
+
+.flower {
+    position: absolute;
+
+    width: 90px;
+    height: 170px;
+
+    transform-origin: bottom center;
+
+    transform: scale(0);
+
+    z-index: 3;
+
+    animation:
+        grow 1.4s ease-out forwards,
+        sway 3s ease-in-out 1.4s infinite;
+}
+
+
+/* =========================
+   STEM
+========================= */
+
+.stem {
+    position: absolute;
+
+    bottom: 0;
+    left: 43px;
+
+    width: 7px;
+    height: 115px;
+
+    background: #2e7d32;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   LEAVES
+========================= */
+
+.leaf {
+    position: absolute;
+
+    width: 42px;
+    height: 20px;
+
+    background: #388e3c;
+
+    border-radius: 100% 0;
+}
+
+.leaf.left {
+    left: 2px;
+    bottom: 50px;
+
+    transform: rotate(25deg);
+}
+
+.leaf.right {
+    right: 2px;
+    bottom: 75px;
+
+    transform: rotate(65deg);
+}
+
+
+/* =========================
+   FLOWER CENTER
+========================= */
+
+.center {
+    position: absolute;
+
+    top: 0;
+    left: 26px;
+
+    width: 38px;
+    height: 38px;
+
+    background: #8b5a00;
+
+    border-radius: 50%;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+    position: absolute;
+
+    width: 36px;
+    height: 52px;
+
+    background: #FFD700;
+
+    border-radius: 50%;
+
+    left: 27px;
+    top: -10px;
+
+    transform-origin: 18px 30px;
+}
+
+
+/* Petal positions */
+
+.p1 {
+    transform: rotate(0deg) translateY(-20px);
+}
+
+.p2 {
+    transform: rotate(45deg) translateY(-20px);
+}
+
+.p3 {
+    transform: rotate(90deg) translateY(-20px);
+}
+
+.p4 {
+    transform: rotate(135deg) translateY(-20px);
+}
+
+.p5 {
+    transform: rotate(180deg) translateY(-20px);
+}
+
+.p6 {
+    transform: rotate(225deg) translateY(-20px);
+}
+
+.p7 {
+    transform: rotate(270deg) translateY(-20px);
+}
+
+.p8 {
+    transform: rotate(315deg) translateY(-20px);
+}
+
+
+/* =========================
+   GROW
+========================= */
+
+@keyframes grow {
+
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   WIND
+========================= */
+
+@keyframes sway {
+
+    0% {
+        rotate: -3deg;
+    }
+
+    50% {
+        rotate: 3deg;
+    }
+
+    100% {
+        rotate: -3deg;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .flower {
+        width: 75px;
+        height: 150px;
+    }
+
+    .stem {
+        left: 36px;
+        height: 100px;
+    }
+
+    .center {
+        left: 21px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .petal {
+        left: 22px;
+        width: 33px;
+        height: 48px;
+    }
+
+    .leaf {
+        width: 36px;
+        height: 18px;
+    }
+}
